@@ -5,7 +5,7 @@
         "Price": 49.90,
         "Weight": "450g",
         "Origin": "Sweden",
-        "image": "zoegas.png"
+        "image": "images/zoegas.png"
     },
     {
         "Brand": "Gevalia",
@@ -13,15 +13,15 @@
         "Price": 39.90,
         "Weight": "450g",
         "Origin": "Sweden",
-        "image": "zoegas.png"
+        "image": "images/gevalia-mellanrost.png"
     },
     {
         "Brand": "Löfbergs",
-        "Type": "Kraftigrost",
+        "Type": "Mellanrost",
         "Price": 44.90,
         "Weight": "450g",
         "Origin": "Sweden",
-        "image": "zoegas.png"
+        "image": "images/lofbergs-mellanrost.png"
     },
     {
         "Brand": "Nescafé",
@@ -29,7 +29,7 @@
         "Price": 59.90,
         "Weight": "200g",
         "Origin": "Switzerland",
-        "image": "zoegas.png"
+        "image": "images/zoegas.png"
     },
     {
         "Brand": "Starbucks",
@@ -37,7 +37,7 @@
         "Price": 69.90,
         "Weight": "250g",
         "Origin": "USA",
-        "image": "zoegas.png"
+        "image": "images/zoegas.png"
     },
     {
         "Brand": "Illy",
@@ -45,7 +45,7 @@
         "Price": 89.90,
         "Weight": "250g",
         "Origin": "Italy",
-        "image": "zoegas.png"
+        "image": "images/zoegas.png"
     },
     {
         "Brand": "Kaffe & Tehuset",
@@ -53,7 +53,7 @@
         "Price": 79.90,
         "Weight": "250g",
         "Origin": "Ethiopia",
-        "image": "zoegas.png"
+        "image": "images/zoegas.png"
     }
 
 ]

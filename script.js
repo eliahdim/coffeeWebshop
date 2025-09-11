@@ -7,8 +7,8 @@ fetch('products.json')
     // Choose the 3 products you want to display
     const selectedProducts = [
       products[0], // Zoegas
-      products[2], // Löfbergs
-      products[5]  // Illy
+      products[1], // Löfbergs
+      products[2]  // Illy
     ];
 
     selectedProducts.forEach(product => {
@@ -16,16 +16,16 @@ fetch('products.json')
       const card = document.createElement('div');
       card.className = 'col';
       card.innerHTML = `
-        <div class="card" style="width: 18rem;">
+        <div class="card">
           <img src="${product.image}" class="card-img-top" alt="${product.Brand} ${product.Type}">
           <div class="card-body">
-            <h5 class="card-title">${product.Brand} - ${product.Type}</h5>
+            <h4 class="card-title">${product.Brand}</h4>
+            <h5 class="card-title">${product.Type}</h5>
             <p class="card-text">
               Price: ${product.Price.toFixed(2)}:-<br>
               Weight: ${product.Weight}<br>
-              Origin: ${product.Origin}
             </p>
-            <a href="#" class="btn btn-primary">Buy Now</a>
+            <a href="#" class="btn btn-primary" addToCart()>Buy Now</a>
           </div>
         </div>
       `;
@@ -33,3 +33,5 @@ fetch('products.json')
     });
   })
   .catch(error => console.error('Error fetching products:', error));
+
+  console.log("Products loaded successfully");
