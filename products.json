@@ -1,0 +1,17 @@
+[ 
+    {
+    "Brand": "Zoegas",
+    "Type": "Skånerost",
+    "Price": 49.90,
+    "Weight": "450g",
+    "Origin": "Sweden"
+    },
+    {
+        "Brand": "Gevalia",
+        "Type": "Mellanrost",
+        "Price": 39.90,
+        "Weight": "450g",
+        "Origin": "Sweden"
+    }
+
+]
