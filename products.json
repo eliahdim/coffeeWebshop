@@ -29,7 +29,7 @@
         "Price": 59.90,
         "Weight": "200g",
         "Origin": "Switzerland",
-        "image": "images/zoegas.png"
+        "image": "images/nescafe-classic.png"
     },
     {
         "Brand": "Starbucks",
@@ -37,7 +37,7 @@
         "Price": 69.90,
         "Weight": "250g",
         "Origin": "USA",
-        "image": "images/zoegas.png"
+        "image": "images/starbucks-pike-place.png"
     },
     {
         "Brand": "Illy",
@@ -45,15 +45,6 @@
         "Price": 89.90,
         "Weight": "250g",
         "Origin": "Italy",
-        "image": "images/zoegas.png"
-    },
-    {
-        "Brand": "Kaffe & Tehuset",
-        "Type": "Ethiopian Yirgacheffe",
-        "Price": 79.90,
-        "Weight": "250g",
-        "Origin": "Ethiopia",
-        "image": "images/zoegas.png"
+        "image": "images/illy-espresso.png"
     }
-
 ]
