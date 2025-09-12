@@ -1,11 +1,9 @@
 // Fetch products from the JSON file
-let product1 = Math.floor(Math.random()*6);
-let product2 = Math.floor(Math.random()*6);
-let product3 = Math.floor(Math.random()*6);
+let product1 = Math.floor(Math.random() * 6);
+let product2 = Math.floor(Math.random() * 6);
+let product3 = Math.floor(Math.random() * 6);
 
-
-
-console.log(product1);
+console.log(product1, product2, product3);
 
 fetch('products.json')
   .then(response => response.json())
@@ -14,12 +12,12 @@ fetch('products.json')
 
     // Choose the 3 products you want to display
     const selectedProducts = [
-      products[product1], // Zoegas
-      products[product2], // Löfbergs
-      products[product3]  // Illy
+      { product: products[product1], index: product1 },
+      { product: products[product2], index: product2 },
+      { product: products[product3], index: product3 }
     ];
 
-    selectedProducts.forEach(product => {
+    selectedProducts.forEach(({ product, index }) => {
       // Create a card for each selected product
       const card = document.createElement('div');
       card.className = 'col';
@@ -33,7 +31,7 @@ fetch('products.json')
               Price: ${product.Price.toFixed(2)}:-<br>
               Weight: ${product.Weight}<br>
             </p>
-            <button type="button" class="btn btn-primary" onclick="addToCart()">Buy Now</button>
+            <button type="button" class="btn btn-primary" onclick="addToCart(${index})">Add to cart</button>
           </div>
         </div>
       `;
@@ -42,9 +40,12 @@ fetch('products.json')
   })
   .catch(error => console.error('Error fetching products:', error));
 
-  console.log("Products loaded successfully");
+console.log("Products loaded successfully");
 
-  function addToCart() {
-    document.cookie = "product="
-    alert("Product added to cart!");
-  }
+// Function to add product index to localStorage
+function addToCart(productId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(productId);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`Product with index ${productId} added to cart!`);
+}
