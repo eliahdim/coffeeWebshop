@@ -45,6 +45,7 @@
         </div>
       </nav>
 <div class="container-md text-center">
+    <button id="addTestItem" type="button" class="btn btn-primary mb-3">Add Test Item</button>
     <div class="rounded bg-custom border border-dark mt-5 mb-3n p-3">
         <div class="row">
             <div class="col"> 
@@ -66,7 +67,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
-                            <button type="button" class="btn btn-secondary">remove</button>
+                            <button id="removeItem" type="button" class="btn btn-secondary">remove</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
-                            <button type="button" class="btn btn-secondary">remove</button>
+                            <button id="removeItem" type="button" class="btn btn-secondary">remove</button>
                         </div>
                     </div>
                 </div>
@@ -94,20 +95,18 @@
                         <h5 class="card-title">Checkout</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-custom2">Item 1, $XX.XX</li>
-                        <li class="list-group-item bg-custom2">Item 2, $XX.XX</li>
-
                     </ul>
                     <div class="card-body">
                         <h5>Total: $XX.XX</h5>
-                        <button type="button" class="btn btn-secondary">Proceed to Payment</button>
-                        <button type="button" class="btn btn-secondary">Clear Cart</button>
+                        <button id="proceedToPayment" type="button" class="btn btn-secondary">Proceed to Payment</button>
+                        <button id="clearCart" type="button" class="btn btn-secondary">Clear Cart</button>
                     </div>
                 </div>                      
             </div>
         </div>
     </div>
 </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="CartFunction.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
