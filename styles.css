@@ -5,3 +5,8 @@ body {
 .bg-custom {
     background-color: #84994F !important;
   }
+
+.card {
+    box-shadow: 2px 2px 5px black;
+}
+
