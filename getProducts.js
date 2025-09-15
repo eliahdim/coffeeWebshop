@@ -69,8 +69,20 @@ fetch('products.json')
 // add product to cart via localStorage
 function addToCart(productId) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.push(productId);
+  // If cart is array of indices, convert to [{idx, quantity: 1}]
+  if (cart.length && typeof cart[0] === 'number') {
+    cart = cart.map(idx => ({ idx, quantity: 1 }));
+  }
+  // Check if product already exists in cart
+  const existing = cart.find(item => item.idx === productId);
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ idx: productId, quantity: 1 });
+  }
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(`Product with index ${productId} added to cart!`);
-  document.getElementById("cart-count").innerText = JSON.parse(localStorage.getItem("cart") || "[]").length;
+  if (document.getElementById("cart-count")) {
+    document.getElementById("cart-count").innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+  }
 }

@@ -1,3 +1,10 @@
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const cartCountElem = document.getElementById("cart-count");
+    if (cartCountElem) cartCountElem.innerText = totalCount;
+}
+
 function loadNavbar() {
 const navbarShow = document.getElementById('navbar-container');
 
@@ -49,5 +56,6 @@ const navbar = document.createElement('div');
       </nav>
         `;
         navbarShow.appendChild(navbar);
+        updateCartCount();
 }
 document.addEventListener('DOMContentLoaded', loadNavbar);
