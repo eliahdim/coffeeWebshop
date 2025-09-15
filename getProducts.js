@@ -58,6 +58,7 @@ fetch('products.json')
           </div>
         `;
         productCards.appendChild(card);
+        document.getElementById("cart-count").innerText = JSON.parse(localStorage.getItem("cart") || "[]").length;
       });
     }
   })
@@ -69,4 +70,5 @@ function addToCart(productId) {
   cart.push(productId);
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(`Product with index ${productId} added to cart!`);
+  document.getElementById("cart-count").innerText = JSON.parse(localStorage.getItem("cart") || "[]").length;
 }
