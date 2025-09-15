@@ -3,6 +3,8 @@ fetch('products.json')
   .then(products => {
     const productCards = document.getElementById('product-cards');
 
+    document.getElementById("cart-count").innerText = JSON.parse(localStorage.getItem("cart") || "[]").length;
+
     // Check which page is being loaded
     const isIndexPage = window.location.pathname.includes('index.html');
     const isCoffeeProductsPage = window.location.pathname.includes('coffee-products.html');
