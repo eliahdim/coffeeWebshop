@@ -1,4 +1,3 @@
-// Fetch products from the JSON file
 fetch('products.json')
   .then(response => response.json())
   .then(products => {
@@ -9,7 +8,6 @@ fetch('products.json')
     const isCoffeeProductsPage = window.location.pathname.includes('coffee-products.html');
 
     if (isIndexPage) {
-      // Display 3 random products on the index page
       const randomIndices = [];
       while (randomIndices.length < 3) {
         const randomIndex = Math.floor(Math.random() * products.length);
@@ -40,7 +38,7 @@ fetch('products.json')
         productCards.appendChild(card);
       });
     } else if (isCoffeeProductsPage) {
-      // Display all products on the coffee-products page
+      // products on the coffee-products page
       products.forEach((product, index) => {
         const card = document.createElement('div');
         card.className = 'col-4 pt-4';
