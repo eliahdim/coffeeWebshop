@@ -1,19 +1,26 @@
- var total = 0;
+var total = 0;
 
 function renderCheckoutList() {
     const checkoutList = document.querySelector('.list-group-flush');
     checkoutList.innerHTML = '';
-    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    cartItems.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item bg-custom2';
-        li.textContent = `${item.name}, $${item.price}`;
-        checkoutList.appendChild(li);
-    });
+    const cartIndices = JSON.parse(localStorage.getItem('cart') || '[]');
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        cartIndices.forEach(idx => {
+          const product = products[idx];
+          if (product) {
+            const li = document.createElement('li');
+            li.className = 'list-group-item bg-custom2';
+            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> - $${product.Price} <br> <small>${product.Weight}, ${product.Origin}</small>`;
+            checkoutList.appendChild(li);
+          }
+        });
+      });
 }
 
 document.getElementById('clearCart').addEventListener('click', function() {
-    localStorage.removeItem('cartItems');
+    localStorage.removeItem('cart');
     renderCheckoutList();
 });
 
