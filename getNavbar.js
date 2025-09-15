@@ -24,9 +24,6 @@ const navbar = document.createElement('div');
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Products
@@ -35,6 +32,9 @@ const navbar = document.createElement('div');
                   <li><a class="dropdown-item" href="coffee-products.html">Coffee</a></li>
                   <li><a class="dropdown-item" href="extras.html">Extras</a></li>
                 </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
               </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
