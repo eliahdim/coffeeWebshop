@@ -46,5 +46,29 @@
         "Weight": "250g",
         "Origin": "Italy",
         "image": "images/illy-espresso.png"
+    },
+    {
+        "Brand": "Lavazza",
+        "Type": "Qualità Rossa",
+        "Price": 79.90,
+        "Weight": "250g",
+        "Origin": "Italy",
+        "image": "images/lavazza-qualita-rossa.png"
+    },
+    {
+        "Brand": "Dallmayr",
+        "Type": "Prodomo",
+        "Price": 69.90,
+        "Weight": "500g",
+        "Origin": "Germany",
+        "image": "images/dallmayr-prodomo.png"
+    },
+    {
+        "Brand": "Tchibo",
+        "Type": "Gold Selection",
+        "Price": 59.90,
+        "Weight": "500g",
+        "Origin": "Germany",
+        "image": "images/tchibo-gold-selection.png"
     }
 ]
