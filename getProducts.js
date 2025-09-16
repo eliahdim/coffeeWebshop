@@ -30,7 +30,7 @@ fetch('getProducts.php')
               <h4 class="card-title">${product.Brand}</h4>
               <h5 class="card-title">${product.Type}</h5>
               <p class="card-text">
-                Price: ${product.Price.toFixed(2)}:-<br>
+                Price: ${product.Price}:-<br>
                 Weight: ${product.Weight}<br>
               </p>
               <button type="button" class="btn btn-primary" onclick="addToCart(${index})">Add to cart</button>
@@ -66,7 +66,6 @@ fetch('getProducts.php')
       });
     }
   })
-  .catch(error => console.error('Error fetching products:', error));
 
 // add product to cart via localStorage
 function addToCart(productId) {
