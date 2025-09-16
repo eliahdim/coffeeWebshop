@@ -1,1 +1,7 @@
+# Environment variables
 .env
+
+# Secret files bro
+.vscode/settings.json
+
+CoffeeShop.session.sql
