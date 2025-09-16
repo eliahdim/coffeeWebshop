@@ -30,7 +30,7 @@ fetch('products.json')
               <h4 class="card-title">${product.brand}</h4>
               <h5 class="card-title">${product.type}</h5>
               <p class="card-text">
-                Price: ${product.price}:-<br>
+                Price: ${product.price.toFixed(2)}:-<br>
                 Weight: ${product.weight}g<br>
               </p>
               <button type="button" class="btn btn-primary" onclick="addToCart(${index})">Add to cart</button>
@@ -51,7 +51,7 @@ fetch('products.json')
               <h4 class="card-title">${product.brand}</h4>
               <h5 class="card-title">${product.type}</h5>
               <p class="card-text">
-                Price: ${product.price}:-<br>
+                Price: ${product.price.toFixed(2)}:-<br>
                 Weight: ${product.weight}g<br>
                 Origin: ${product.origin}
               </p>
