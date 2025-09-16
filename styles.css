@@ -17,6 +17,33 @@ body {
     background-color: var(--coffee-dark) !important;
   }
 
+.bg-custom2 {
+    background-color: #FCB53B !important;
+  }
+
+  .navbar .nav-link {
+    color: white !important;
+  }
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--coffee-brown) 0%, var(--coffee-accent) 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, var(--coffee-accent) 0%, var(--coffee-dark) 100%);
+}
+  
+
   .card {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     border: none;
@@ -42,11 +69,6 @@ body {
     transform: scale(1.05);
 }
 
-.bg-custom2 {
-    background-color: #FCB53B !important;
-  }
-
-
 #login {
   width: 500px;
   margin-top: 120px;
@@ -58,18 +80,12 @@ body {
   box-shadow: 1px 2px 0px black;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--coffee-brown) 0%, var(--coffee-accent) 100%);
-  border: none;
-  border-radius: 25px;
-  padding: 12px 30px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
 
-.navbar .nav-link {
-  color: white !important;
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              linear-gradient(135deg, var(--coffee-cream) 0%, var(--coffee-light) 100%);
+  min-height: 30vh;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
