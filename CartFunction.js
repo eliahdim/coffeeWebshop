@@ -144,7 +144,7 @@ function renderCheckoutList() {
             const li = document.createElement('li');
             li.className = 'list-group-item checkout-list-item';
             li.setAttribute('data-i', i);
-            li.innerHTML = `<strong>${product.brand} ${product.type}</strong> x${item.quantity} - $${(product.price * item.quantity).toFixed(2)} <br> <small>${product.weight}, ${product.origin}</small>`;
+            li.innerHTML = `<strong>${product.brand} ${product.type}</strong> x${item.quantity} - ${(product.price * item.quantity)}:- <br> <small>${product.weight}, ${product.origin}</small>`;
             checkoutList.appendChild(li);
             total += product.price * item.quantity;
           }
