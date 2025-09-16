@@ -1,4 +1,4 @@
-fetch('products.json')
+fetch('getProducts.php')
   .then(response => response.json())
   .then(products => {
     const productCards = document.getElementById('product-cards');
