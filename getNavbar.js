@@ -39,6 +39,11 @@ const navbar = document.createElement('div');
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
             </ul>
+            <ul class="navbar-item me-3">
+                <li class="nav-item pt-3">
+                    <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+                </li>
+            </ul>
             <ul class="navbar-nav">
                 <li class="nav-item pt-3">
                     <p id="cart-count" style="color: rgb(255, 255, 255);">Cart Count</p>
