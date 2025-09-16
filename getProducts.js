@@ -60,7 +60,9 @@ fetch('products.json')
           </div>
         `;
         productCards.appendChild(card);
-        document.getElementById("cart-count").innerText = JSON.parse(localStorage.getItem("cart") || "[]").length;
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        document.getElementById("cart-count").innerText = totalCount;
       });
     }
   })

@@ -61,6 +61,9 @@ function renderCartProductCards() {
             setCart(cartArr);
             renderCartProductCards();
             renderCheckoutList();
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            document.getElementById("cart-count").innerText = totalCount;
           });
         });
         document.querySelectorAll('.minus-item').forEach(btn => {
@@ -68,10 +71,13 @@ function renderCartProductCards() {
             const i = parseInt(this.getAttribute('data-i'));
             let cartArr = getCart();
             if (cartArr[i].quantity > 1) {
-              cartArr[i].quantity--;
-              setCart(cartArr);
-              renderCartProductCards();
-              renderCheckoutList();
+            cartArr[i].quantity--;
+            setCart(cartArr);
+            renderCartProductCards();
+            renderCheckoutList();
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+document.getElementById("cart-count").innerText = totalCount;
             }
           });
         });
@@ -83,6 +89,9 @@ function renderCartProductCards() {
             setCart(cartArr);
             renderCartProductCards();
             renderCheckoutList();
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            document.getElementById("cart-count").innerText = totalCount;
           });
         });
     });
@@ -103,7 +112,7 @@ function renderCheckoutList() {
           if (product) {
             const li = document.createElement('li');
             li.className = 'list-group-item ';
-            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - $${(product.Price * item.quantity).toFixed(2)} <br> <small>${product.Weight}, ${product.Origin}</small>`;
+            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - ${(product.Price * item.quantity).toFixed(2)}:- <br> <small>${product.Weight}, ${product.Origin}</small>`;
             checkoutList.appendChild(li);
             total += product.Price * item.quantity;
           }
@@ -116,6 +125,9 @@ document.getElementById('clearCart').addEventListener('click', function() {
     localStorage.removeItem('cart');
     renderCheckoutList();
     renderCartProductCards();
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+document.getElementById("cart-count").innerText = totalCount;
 });
 
 renderCheckoutList();
