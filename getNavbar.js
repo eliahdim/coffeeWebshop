@@ -41,7 +41,7 @@ const navbar = document.createElement('div');
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item pt-3">
-                    <p id="cart-count" style="color: rgb(154, 0, 0);">Cart Count</p>
+                    <p id="cart-count" style="color: rgb(255, 255, 255);">Cart Count</p>
                 </li>
             </ul>
             <ul class="navbar-nav">
