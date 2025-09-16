@@ -25,13 +25,13 @@ fetch('getProducts.php')
         card.className = 'col';
         card.innerHTML = `
           <div class="card">
-            <img src="${product.image}" class="card-img-top pt-4" alt="${product.Brand} ${product.Type}">
+            <img src="${product.image}" class="card-img-top pt-4" alt="${product.brand} ${product.type}">
             <div class="card-body">
-              <h4 class="card-title">${product.Brand}</h4>
-              <h5 class="card-title">${product.Type}</h5>
+              <h4 class="card-title">${product.brand}</h4>
+              <h5 class="card-title">${product.type}</h5>
               <p class="card-text">
-                Price: ${product.Price}:-<br>
-                Weight: ${product.Weight}<br>
+                Price: ${product.price}:-<br>
+                Weight: ${product.weight}g<br>
               </p>
               <button type="button" class="btn btn-primary" onclick="addToCart(${index})">Add to cart</button>
             </div>
@@ -46,14 +46,14 @@ fetch('getProducts.php')
         card.className = 'col-4 pt-4';
         card.innerHTML = `
           <div class="card">
-            <img src="${product.image}" class="card-img-top pt-4" alt="${product.Brand} ${product.Type}">
+            <img src="${product.image}" class="card-img-top pt-4" alt="${product.brand} ${product.type}">
             <div class="card-body">
-              <h4 class="card-title">${product.Brand}</h4>
-              <h5 class="card-title">${product.Type}</h5>
+              <h4 class="card-title">${product.brand}</h4>
+              <h5 class="card-title">${product.type}</h5>
               <p class="card-text">
-                Price: ${product.Price}:-<br>
-                Weight: ${product.Weight}<br>
-                Origin: ${product.Origin}
+                Price: ${product.price}:-<br>
+                Weight: ${product.weight}g<br>
+                Origin: ${product.origin}
               </p>
               <button type="button" class="btn btn-primary" onclick="addToCart(${index})">Add to cart</button>
             </div>
