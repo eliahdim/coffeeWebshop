@@ -1,14 +1,14 @@
 [ 
     {
-        "Brand": "Zoegas",
-        "Type": "Skånerost",
-        "Price": 49.90,
-        "Weight": "450g",
-        "Origin": "Sweden",
+        "brand": "Zoegas",
+        "type": "Skånerost",
+        "price": 49.90,
+        "weight": "450g",
+        "origin": "Sweden",
         "image": "images/zoegas.png"
     },
     {
-        "Brand": "Gevalia",
+        "brand": "Gevalia",
         "Type": "Mellanrost",
         "Price": 39.90,
         "Weight": "450g",
@@ -16,7 +16,7 @@
         "image": "images/gevalia-mellanrost.png"
     },
     {
-        "Brand": "Löfbergs",
+        "brand": "Löfbergs",
         "Type": "Mellanrost",
         "Price": 44.90,
         "Weight": "450g",
