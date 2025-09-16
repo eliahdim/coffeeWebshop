@@ -12,6 +12,47 @@ function setCart(cartArr) {
     localStorage.setItem('cart', JSON.stringify(cartArr));
 }
 
+function renderCartAmount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    document.getElementById("cart-count").innerText = totalCount;
+}
+
+onload = renderCartAmount;
+
+function updateCartAmount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const cartCountElem = document.getElementById("cart-count");
+    if (cartCountElem) cartCountElem.innerText = totalCount;
+}
+
+function updateProductCardAndCheckout(idx) {
+    let cartArr = getCart();
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        const item = cartArr[idx];
+        const product = products[item.idx];
+        // Update quantity in product card
+        const qtyBtn = document.querySelector(`.quantity-display[data-i='${idx}']`);
+        if (qtyBtn) qtyBtn.textContent = item.quantity;
+        // Update checkout list item
+        const checkoutLi = document.querySelector(`.checkout-list-item[data-i='${idx}']`);
+        if (checkoutLi) {
+          checkoutLi.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - $${(product.Price * item.quantity).toFixed(2)} <br> <small>${product.Weight}, ${product.Origin}</small>`;
+        }
+        // Update total
+        let total = 0;
+        cartArr.forEach((item, i) => {
+          const prod = products[item.idx];
+          if (prod) total += prod.Price * item.quantity;
+        });
+        document.getElementById('totalPrice').textContent = total.toFixed(2);
+        updateCartAmount();
+      });
+}
+
 function renderCartProductCards() {
     const cardsContainer = document.getElementById('cart-product-cards');
     if (!cardsContainer) return;
@@ -61,9 +102,7 @@ function renderCartProductCards() {
             setCart(cartArr);
             renderCartProductCards();
             renderCheckoutList();
-            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-            document.getElementById("cart-count").innerText = totalCount;
+            updateCartAmount();
           });
         });
         document.querySelectorAll('.minus-item').forEach(btn => {
@@ -71,13 +110,9 @@ function renderCartProductCards() {
             const i = parseInt(this.getAttribute('data-i'));
             let cartArr = getCart();
             if (cartArr[i].quantity > 1) {
-            cartArr[i].quantity--;
-            setCart(cartArr);
-            renderCartProductCards();
-            renderCheckoutList();
-            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-document.getElementById("cart-count").innerText = totalCount;
+              cartArr[i].quantity--;
+              setCart(cartArr);
+              updateProductCardAndCheckout(i);
             }
           });
         });
@@ -87,11 +122,7 @@ document.getElementById("cart-count").innerText = totalCount;
             let cartArr = getCart();
             cartArr[i].quantity++;
             setCart(cartArr);
-            renderCartProductCards();
-            renderCheckoutList();
-            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-            document.getElementById("cart-count").innerText = totalCount;
+            updateProductCardAndCheckout(i);
           });
         });
     });
@@ -107,12 +138,13 @@ function renderCheckoutList() {
     fetch('products.json')
       .then(response => response.json())
       .then(products => {
-        cartArr.forEach(item => {
+        cartArr.forEach((item, i) => {
           const product = products[item.idx];
           if (product) {
             const li = document.createElement('li');
-            li.className = 'list-group-item ';
-            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - ${(product.Price * item.quantity).toFixed(2)}:- <br> <small>${product.Weight}, ${product.Origin}</small>`;
+            li.className = 'list-group-item checkout-list-item';
+            li.setAttribute('data-i', i);
+            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - $${(product.Price * item.quantity).toFixed(2)} <br> <small>${product.Weight}, ${product.Origin}</small>`;
             checkoutList.appendChild(li);
             total += product.Price * item.quantity;
           }
@@ -125,9 +157,31 @@ document.getElementById('clearCart').addEventListener('click', function() {
     localStorage.removeItem('cart');
     renderCheckoutList();
     renderCartProductCards();
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-document.getElementById("cart-count").innerText = totalCount;
+    renderCartAmount();
 });
+
+document.getElementById('Receipt').addEventListener('click', function() {
+    let cartArr = getCart();
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        let lines = ['Coffee Shop Receipt', ''];
+        let total = 0;
+        cartArr.forEach(item => {
+            const product = products[item.idx];
+            if (product) {
+                lines.push(`${product.Brand} ${product.Type} x${item.quantity} - ${(product.Price * item.quantity).toFixed(2)}:-`);
+                total += product.Price * item.quantity;
+            }
+        });
+        lines.push('', `Total: ${(total).toFixed(2)}:-`, 'Thank you for your purchase!');
+        const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'receipt.txt';
+        link.click();
+      });
+});
+
 
 renderCheckoutList();

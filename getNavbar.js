@@ -59,3 +59,11 @@ const navbar = document.createElement('div');
         updateCartCount();
 }
 document.addEventListener('DOMContentLoaded', loadNavbar);
+
+function renderCartAmount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    document.getElementById("cart-count").innerText = totalCount;
+}
+
+onload = renderCartAmount;
