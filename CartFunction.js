@@ -40,13 +40,13 @@ function updateProductCardAndCheckout(idx) {
         // Update checkout list item
         const checkoutLi = document.querySelector(`.checkout-list-item[data-i='${idx}']`);
         if (checkoutLi) {
-          checkoutLi.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - $${(product.Price * item.quantity).toFixed(2)} <br> <small>${product.Weight}, ${product.Origin}</small>`;
+          checkoutLi.innerHTML = `<strong>${product.brand} ${product.type}</strong> x${item.quantity} - $${(product.price * item.quantity).toFixed(2)} <br> <small>${product.weight}, ${product.origin}</small>`;
         }
         // Update total
         let total = 0;
         cartArr.forEach((item, i) => {
           const prod = products[item.idx];
-          if (prod) total += prod.Price * item.quantity;
+          if (prod) total += prod.price * item.quantity;
         });
         document.getElementById('totalPrice').textContent = total.toFixed(2);
         updateCartAmount();
@@ -71,13 +71,13 @@ function renderCartProductCards() {
             card.innerHTML = `
               <div class="row g-0 p-1">
                 <div class="col-md-4">
-                  <img src="${product.image}" class="img-fluid rounded" alt="${product.Brand} ${product.Type}">
+                  <img src="${product.image}" class="img-fluid rounded" alt="${product.brand} ${product.type}">
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
-                    <h5 class="card-title">${product.Brand} ${product.Type}</h5>
-                    <p class="card-text">${product.Weight}, ${product.Origin}</p>
-                    <p class="card-text"><small class="text-body-secondary">Price ${product.Price.toFixed(2)}:-</small></p>
+                    <h5 class="card-title">${product.brand} ${product.type}</h5>
+                    <p class="card-text">${product.weight}, ${product.origin}</p>
+                    <p class="card-text"><small class="text-body-secondary">Price ${product.price.toFixed(2)}:-</small></p>
                   </div>
                 </div>
                 <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
@@ -144,9 +144,9 @@ function renderCheckoutList() {
             const li = document.createElement('li');
             li.className = 'list-group-item checkout-list-item';
             li.setAttribute('data-i', i);
-            li.innerHTML = `<strong>${product.Brand} ${product.Type}</strong> x${item.quantity} - $${(product.Price * item.quantity).toFixed(2)} <br> <small>${product.Weight}, ${product.Origin}</small>`;
+            li.innerHTML = `<strong>${product.brand} ${product.type}</strong> x${item.quantity} - ${(product.price * item.quantity).toFixed(2)}:- <br> <small>${product.weight}, ${product.origin}</small>`;
             checkoutList.appendChild(li);
-            total += product.Price * item.quantity;
+            total += product.price * item.quantity;
           }
         });
         document.getElementById('totalPrice').textContent = total.toFixed(2);
@@ -170,8 +170,8 @@ document.getElementById('Receipt').addEventListener('click', function() {
         cartArr.forEach(item => {
             const product = products[item.idx];
             if (product) {
-                lines.push(`${product.Brand} ${product.Type} x${item.quantity} - ${(product.Price * item.quantity).toFixed(2)}:-`);
-                total += product.Price * item.quantity;
+                lines.push(`${product.brand} ${product.type} x${item.quantity} - ${(product.price * item.quantity).toFixed(2)}:-`);
+                total += product.price * item.quantity;
             }
         });
         lines.push('', `Total: ${(total).toFixed(2)}:-`, 'Thank you for your purchase!');
