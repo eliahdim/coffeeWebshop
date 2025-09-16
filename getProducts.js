@@ -51,7 +51,7 @@ fetch('getProducts.php')
               <h4 class="card-title">${product.Brand}</h4>
               <h5 class="card-title">${product.Type}</h5>
               <p class="card-text">
-                Price: ${product.Price.toFixed(2)}:-<br>
+                Price: ${product.Price}:-<br>
                 Weight: ${product.Weight}<br>
                 Origin: ${product.Origin}
               </p>
