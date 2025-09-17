@@ -83,7 +83,6 @@ body {
 .hero-section {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
               linear-gradient(135deg, var(--coffee-cream) 0%, var(--coffee-light) 100%);
-  min-height: 30vh;
   align-items: center;
   position: relative;
   overflow: hidden;

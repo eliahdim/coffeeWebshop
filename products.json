@@ -3,7 +3,7 @@
         "brand": "Zoegas",
         "type": "Skånerost",
         "price": 49.90,
-        "weight": "450g",
+        "weight": "450",
         "origin": "Sweden",
         "image": "images/zoegas.png"
     },
@@ -11,7 +11,7 @@
         "brand": "Gevalia",
         "type": "Mellanrost",
         "price": 39.90,
-        "weight": "450g",
+        "weight": "450",
         "origin": "Sweden",
         "image": "images/gevalia-mellanrost.png"
     },
@@ -19,7 +19,7 @@
         "brand": "Löfbergs",
         "type": "Mellanrost",
         "price": 44.90,
-        "weight": "450g",
+        "weight": "450",
         "origin": "Sweden",
         "image": "images/lofbergs-mellanrost.png"
     },
@@ -27,7 +27,7 @@
         "brand": "Nescafé",
         "type": "Classic",
         "price": 59.90,
-        "weight": "200g",
+        "weight": "200",
         "origin": "Switzerland",
         "image": "images/nescafe-classic.png"
     },
@@ -35,7 +35,7 @@
         "brand": "Starbucks",
         "type": "Pike Place",
         "price": 69.90,
-        "weight": "250g",
+        "weight": "250",
         "origin": "USA",
         "image": "images/starbucks-pike-place.png"
     },
@@ -43,7 +43,7 @@
         "brand": "Illy",
         "type": "Espresso",
         "price": 89.90,
-        "weight": "250g",
+        "weight": "250",
         "origin": "Italy",
         "image": "images/illy-espresso.png"
     },
@@ -51,7 +51,7 @@
         "brand": "Lavazza",
         "type": "Qualità Rossa",
         "price": 79.90,
-        "weight": "250g",
+        "weight": "250",
         "origin": "Italy",
         "image": "images/lavazza-qualita-rossa.png"
     },
@@ -59,7 +59,7 @@
         "brand": "Dallmayr",
         "type": "Prodomo",
         "price": 69.90,
-        "weight": "500g",
+        "weight": "500",
         "origin": "Germany",
         "image": "images/dallmayr-prodomo.png"
     },
@@ -67,7 +67,7 @@
         "brand": "Tchibo",
         "type": "Gold Selection",
         "price": 59.90,
-        "weight": "500g",
+        "weight": "500",
         "origin": "Germany",
         "image": "images/tchibo-gold-selection.png"
     }

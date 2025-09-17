@@ -46,7 +46,7 @@ function updateProductCardAndCheckout(idx) {
         let total = 0;
         cartArr.forEach((item, i) => {
           const prod = products[item.idx];
-          if (prod) total += prod.Price * item.quantity;
+          if (prod) total += prod.price * item.quantity;
         });
         document.getElementById('totalPrice').textContent = total.toFixed(2);
         updateCartAmount();
@@ -77,7 +77,7 @@ function renderCartProductCards() {
                   <div class="card-body">
                     <h5 class="card-title">${product.brand} ${product.type}</h5>
                     <p class="card-text">${product.weight}, ${product.origin}</p>
-                    <p class="card-text"><small class="text-body-secondary">Price ${product.price}:-</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Price ${product.price.toFixed(2)}:-</small></p>
                   </div>
                 </div>
                 <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
