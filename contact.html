@@ -14,40 +14,48 @@
 </head>
 <body>
     <div>
-        <div class="container text-center">
+        <div class="container text-center pb-5">
             <div id="navbar-container">
                 <!-- Navbar will load here -->
             </div>
-          </div>
-    </div>
-    <div class="row">
-        <div class="container mt-5 col" style="max-width: 600px;">
-            <h1 class="text-center pt-5">Contact Us</h1>
-            <p class="text-center">We'd love to hear from you! Please fill out the form below to get in touch.</p>
-            <form class="mt-4">
-              <div class="mb-3">
-                 <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-             </div>
-             <div class="mb-3">
-                 <label for="email" class="form-label">Email</label>
-                 <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-             </div>
-             <div class="mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-             </div>
-             <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
         </div>
-        <div class="col">
-            <h1 class="text-center pt-5">You can reach us at:</h1>
-            <ul class="list-unstyled mt-4">
-                <li>Email</li>
-                <li>Adress</li>
-                <li>Phone number</li>
-                <li>Social media</li>
-            </ul>
+    </div>
+    <div class="container mt-5">
+        <div class="row g-5 align-items-start">
+            <!-- Left: Contact Form -->
+            <div class="col-md-6">
+                <div class="p-4 bg-white rounded shadow">
+                    <h1 class="mb-3">Contact Us</h1>
+                    <p>We'd love to hear from you! Please fill out the form below to get in touch.</p>
+                    <form class="mt-3" action="https://formspree.io/f/mblavaqw" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Right: Contact Info -->
+            <div class="col-md-6">
+                <div class="p-4 bg-white rounded shadow h-100">
+                    <h1 class="mb-3">Contact Information</h1>
+                    <ul class="list-unstyled fs-5 mt-4">
+                        <li class="mb-3"><i class="fas fa-envelope me-2"></i> info@coffeeshop.com</li>
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> 123 Coffee St, Bean City</li>
+                        <li class="mb-3"><i class="fas fa-phone me-2"></i> +1 234 567 890</li>
+                        <li><i class="fab fa-instagram me-2"></i> @coffeeshop</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </body>
