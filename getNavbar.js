@@ -13,7 +13,7 @@ const navbar = document.createElement('div');
         navbar.innerHTML = `
           <nav class="navbar navbar-expand-lg bg-custom border-bottom border-2 border-dark shadow p-3 mb-5 bg-body-tertiary fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="index.html">
             <img src="images/logo.png" alt="Coffee Shop Logo" height="40">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
