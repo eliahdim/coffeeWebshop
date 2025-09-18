@@ -82,7 +82,6 @@ function addToCart(productId) {
     cart.push({ idx: productId, quantity: 1 });
   }
   localStorage.setItem('cart', JSON.stringify(cart));
-  alert(`Product with index ${productId} added to cart!`);
   if (document.getElementById("cart-count")) {
     document.getElementById("cart-count").innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
   }
