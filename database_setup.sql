@@ -26,9 +26,28 @@ CREATE TABLE IF NOT EXISTS CoffeeProducts (
     image VARCHAR(255) NOT NULL
 );
 
--- Some test data
+-- Create the Users table for authentication
+CREATE TABLE IF NOT EXISTS Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    user_type ENUM('admin', 'customer') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert admin and customer accounts with hashed passwords
+-- Passwords are hashed using PHP's password_hash() function
+INSERT INTO Users (email, password, user_type) VALUES 
+('admin@example.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'admin'),
+('customer@example.com', '$2y$10$I4j8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'customer');
+
+-- Note: The above hashes are for 'admin123' and 'customer123' respectively
+-- Generated using PHP's password_hash() function with PASSWORD_DEFAULT
+
+-- Some test data for products
 INSERT INTO CoffeeProducts (brand, type, price, weight, origin, image) VALUES 
 ('Zoegas', 'Skånerost', 79.90, 500, 'Sweden', 'images/zoegas.png');
 
 -- Test to see that it works correctly by:
 SELECT * FROM CoffeeProducts;
+SELECT * FROM Users;

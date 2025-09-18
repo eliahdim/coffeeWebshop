@@ -5,8 +5,53 @@ function updateCartCount() {
     if (cartCountElem) cartCountElem.innerText = totalCount;
 }
 
+// Logout function
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('userId');
+    // Reload the navbar to show the updated state
+    const navbarContainer = document.getElementById('navbar-container');
+    if (navbarContainer) {
+        navbarContainer.innerHTML = '';
+        loadNavbar();
+    }
+    // Redirect to home page
+    window.location.href = 'index.html';
+}
+
 function loadNavbar() {
 const navbarShow = document.getElementById('navbar-container');
+
+// Check if user is logged in
+const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+const userEmail = localStorage.getItem('userEmail');
+
+// Create login/user section based on login status
+let loginSection = '';
+if (isLoggedIn && userEmail) {
+    loginSection = `
+        <ul class="navbar-item me-3">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    ${userEmail}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    `;
+} else {
+    loginSection = `
+        <ul class="navbar-item me-3">
+            <li class="nav-item pt-3">
+                <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+            </li>
+        </ul>
+    `;
+}
 
 const navbar = document.createElement('div');
         navbar.className = '';
@@ -39,11 +84,7 @@ const navbar = document.createElement('div');
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
             </ul>
-            <ul class="navbar-item me-3">
-                <li class="nav-item pt-3">
-                    <a class="nav-link active" aria-current="page" href="login.html">Login</a>
-                </li>
-            </ul>
+            ${loginSection}
             <ul class="navbar-nav">
                 <li class="nav-item pt-3">
                     <p id="cart-count" style="color: rgb(255, 255, 255);">Cart Count</p>
