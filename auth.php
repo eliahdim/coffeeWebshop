@@ -50,6 +50,21 @@ $host = getenv('DB_HOST');
 $username = getenv('DB_USERNAME');
 $password_db = getenv('DB_PASSWORD');
 $database = getenv('DB_DATABASE');
+// Optional debug flag
+$debug = strtolower((string)getenv('DEBUG')) === 'true' || getenv('DEBUG') === '1';
+
+// Validate required env vars when debugging is enabled
+if ($debug) {
+    $missing = [];
+    if ($host === false || $host === '') { $missing[] = 'DB_HOST'; }
+    if ($username === false || $username === '') { $missing[] = 'DB_USERNAME'; }
+    if ($password_db === false) { $missing[] = 'DB_PASSWORD'; }
+    if ($database === false || $database === '') { $missing[] = 'DB_DATABASE'; }
+    if (!empty($missing)) {
+        echo json_encode(['success' => false, 'message' => 'Missing environment variables: ' . implode(', ', $missing)]);
+        exit;
+    }
+}
 
 // Connect to database
 $link = mysqli_connect($host, $username, $password_db, $database);
@@ -88,11 +103,11 @@ if ($row = mysqli_fetch_assoc($result)) {
         ]);
     } else {
         // Invalid password
-        echo json_encode(['success' => false, 'message' => 'Invalid email or password']);
+        echo json_encode(['success' => false, 'message' => $debug ? 'Password mismatch' : 'Invalid email or password']);
     }
 } else {
     // User not found
-    echo json_encode(['success' => false, 'message' => 'Invalid email or password']);
+    echo json_encode(['success' => false, 'message' => $debug ? 'User not found' : 'Invalid email or password']);
 }
 
 mysqli_stmt_close($stmt);
