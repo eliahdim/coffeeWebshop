@@ -15,8 +15,8 @@ function checkLogin() {
 
 // New login function for regular users
 function login() {
-    let email = document.getElementById("exampleInputEmail1").value;
-    let password = document.getElementById("exampleInputPassword1").value;
+    let email = document.getElementById("exampleInputEmail1").value.trim();
+    let password = document.getElementById("exampleInputPassword1").value.trim();
 
     if (email == '' || password == '') {
         alert("Please fill in all fields");
